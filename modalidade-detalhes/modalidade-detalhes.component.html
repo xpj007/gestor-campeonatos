@@ -1,0 +1,108 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentModalidade.id">
+      <h4>Modalidade</h4>
+      <div>
+        <label><strong>Nome da Modalidade:</strong></label> {{ currentModalidade.mod_nome }}
+      </div>
+      <div>
+        <label><strong>Descrição da Modalidade:</strong></label>
+        {{ currentModalidade.mod_descri }}
+      </div>
+      <div>
+        <label><strong>Qtd de Jogadores por time:</strong></label>
+        {{ currentModalidade.mod_qtd_time }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentModalidade.publicado ? "Publicado" : "Pendente" }}
+      </div>
+  
+      <a
+        class="badge badge-warning"
+        routerLink="/modalidades/{{ currentModalidade.id }}"
+      >
+        Editar
+      </a>
+    </div>
+  
+    <div *ngIf="!currentModalidade">
+      <br />
+      <p>Por favor clique em uma Modalidade...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentModalidade.id" class="edit-form">
+      <h4>Modalidade</h4>
+      <form>
+        <div class="form-group">
+          <label for="mod_nome">Nome da Modalidade</label>
+          <input
+            type="text"
+            class="form-control"
+            id="mod_nome"
+            [(ngModel)]="currentModalidade.mod_nome"
+            name="mod_nome"
+          />
+        </div>
+        <div class="form-group">
+          <label for="mod_descri">Descricao da Modalidade</label>
+          <input
+            type="text"
+            class="form-control"
+            id="mod_descri"
+            [(ngModel)]="currentModalidade.mod_descri"
+            name="mod_descri"
+          />
+        </div>
+        <div class="form-group">
+            <label for="mod_qtd_time">Qtd de Jogadores por Time</label>
+            <input
+              type="text"
+              class="form-control"
+              id="mod_qtd_time"
+              [(ngModel)]="currentModalidade.mod_qtd_time"
+              name="mod_qtd_time"
+            />
+        </div>
+  
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentModalidade.publicado ? "Publicado" : "Pendente" }}
+        </div>
+      </form>
+  
+      <button
+        class="badge badge-primary mr-2"
+        *ngIf="currentModalidade.publicado"
+        (click)="atualizarPublicado(false)"
+      >
+        Inativar
+      </button>
+      <button
+        *ngIf="!currentModalidade.publicado"
+        class="badge badge-primary mr-2"
+        (click)="atualizarPublicado(true)"
+      >
+        Publicar
+      </button>
+  
+      <button class="badge badge-danger mr-2" (click)="deletarModalidade()">
+        Excluir
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="atualizarModalidade()"
+      >
+        Atualizar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentModalidade.id">
+      <br />
+      <p>Nao e possivel acessar essa Modalidade...</p>
+    </div>
+  </ng-template>

@@ -1,0 +1,46 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="mod_nome">Nome da Modalidade</label>
+          <input
+            type="text"
+            class="form-control"
+            id="mod_nome"
+            required
+            [(ngModel)]="modalidade.mod_nome"
+            name="mod_nome"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="mod_descri">Descrição da Modalidade</label>
+          <input
+            class="form-control"
+            id="mod_descri"
+            required
+            [(ngModel)]="modalidade.mod_descri"
+            name="mod_descri"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="mod_qtd_time">Quantidade por Time</label>
+            <input
+              class="form-control"
+              id="mod_qtd_time"
+              required
+              [(ngModel)]="modalidade.mod_qtd_time"
+              name="mod_qtd_time"
+            />
+        </div>
+  
+        <button (click)="gravarModalidade()" class="btn btn-success">Gravar</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Modalidade incluida com Sucesso!</h4>
+        <button class="btn btn-success" (click)="novaModalidade()">Adicionar</button>
+      </div>
+    </div>
+  </div>
