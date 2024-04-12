@@ -10,6 +10,7 @@ python manage.py migrate nomedoapp
 python manage.py runserver 8080      
 
 ng g s services/seucomponente
+ng g class models/seucomponente --type=model
 
 ng g c components/add-seucomponente
 ng g c components/seucomponente-details
