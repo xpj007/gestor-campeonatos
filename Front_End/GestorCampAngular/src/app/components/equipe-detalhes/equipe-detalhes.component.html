@@ -1,0 +1,80 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentEquipe.id">
+      <h4>Equipe</h4>
+      <div>
+        <label><strong>Nome da Equipe:</strong></label> {{ currentEquipe.Equipe_nome }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentEquipe.publicado ? "Publicado" : "Pendente" }}
+      </div>
+  
+      <a
+        class="badge badge-warning"
+        routerLink="/equipes/{{ currentEquipe.id }}"
+      >
+        Editar
+      </a>
+    </div>
+  
+    <div *ngIf="!currentEquipe">
+      <br />
+      <p>Por favor clique em uma Equipe...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentEquipe.id" class="edit-form">
+      <h4>Equipe</h4>
+      <form>
+        <div class="form-group">
+          <label for="Equipe_nome">Nome da Equipe:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Equipe_nome"
+            [(ngModel)]="currentEquipe.Equipe_nome"
+            name="Equipe_nome"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentEquipe.publicado ? "Publicado" : "Pendente" }}
+        </div>
+      </form>
+  
+      <button
+        class="badge badge-primary mr-2"
+        *ngIf="currentEquipe.publicado"
+        (click)="atualizarPublicado(false)"
+      >
+        Inativar
+      </button>
+      <button
+        *ngIf="!currentEquipe.publicado"
+        class="badge badge-primary mr-2"
+        (click)="atualizarPublicado(true)"
+      >
+        Publicar
+      </button>
+  
+      <button class="badge badge-danger mr-2" (click)="deletarEquipe()">
+        Excluir
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="atualizarEquipe()"
+      >
+        Atualizar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentEquipe.id">
+      <br />
+      <p>Nao é possivel acessar essa Equipe...</p>
+    </div>
+  </ng-template>

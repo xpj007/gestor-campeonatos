@@ -1,0 +1,108 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentCampeonato.id">
+      <h4>Campeonato</h4>
+      <div>
+        <label><strong>Nome do Campeonato:</strong></label> {{ currentCampeonato.camp_nome }}
+      </div>
+      <div>
+        <label><strong>Numero de Equipes:</strong></label>
+        {{ currentCampeonato.camp_n_equip }}
+      </div>
+      <div>
+        <label><strong>Modalidade do Campeonato:</strong></label>
+        {{ currentCampeonato.camp_modalidade }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentCampeonato.publicado ? "Publicado" : "Pendente" }}
+      </div>
+  
+      <a
+        class="badge badge-warning"
+        routerLink="/campeonatos/{{ currentCampeonato.id }}"
+      >
+        Editar
+      </a>
+    </div>
+  
+    <div *ngIf="!currentCampeonato">
+      <br />
+      <p>Por favor clique em um Campeonato...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentCampeonato.id" class="edit-form">
+      <h4>Campeonato</h4>
+      <form>
+        <div class="form-group">
+          <label for="camp_nome">Nome do Campeonato</label>
+          <input
+            type="text"
+            class="form-control"
+            id="camp_nome"
+            [(ngModel)]="currentCampeonato.camp_nome"
+            name="camp_nome"
+          />
+        </div>
+        <div class="form-group">
+            <label for="camp_n_equip">Numero de Equipes:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="camp_n_equip"
+              [(ngModel)]="currentCampeonato.camp_n_equip"
+              name="camp_n_equip"
+            />
+        </div>
+        <div class="form-group">
+            <label for="camp_modalidade">Modalidade do Campeonato</label>
+            <input
+              type="text"
+              class="form-control"
+              id="camp_modalidade"
+              [(ngModel)]="currentCampeonato.camp_modalidade"
+              name="camp_modalidade"
+            />
+        </div>
+  
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentCampeonato.publicado ? "Publicado" : "Pendente" }}
+        </div>
+      </form>
+  
+      <button
+        class="badge badge-primary mr-2"
+        *ngIf="currentCampeonato.publicado"
+        (click)="atualizarPublicado(false)"
+      >
+        Inativar
+      </button>
+      <button
+        *ngIf="!currentCampeonato.publicado"
+        class="badge badge-primary mr-2"
+        (click)="atualizarPublicado(true)"
+      >
+        Publicar
+      </button>
+  
+      <button class="badge badge-danger mr-2" (click)="deletarCampeonato()">
+        Excluir
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="atualizarCampeonato()"
+      >
+        Atualizar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentCampeonato.id">
+      <br />
+      <p>Nao é possivel acessar esse Campeonato...</p>
+    </div>
+  </ng-template>
