@@ -8,13 +8,25 @@ import { ModalidadeDetalhesComponent } from './components/modalidade-detalhes/mo
 import { ModalidadeListaComponent } from './components/modalidade-lista/modalidade-lista.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AddEquipeComponent } from './components/add-equipe/add-equipe.component';
+import { AddCampeonatoComponent } from './components/add-campeonato/add-campeonato.component';
+import { CampeonatoDetalhesComponent } from './components/campeonato-detalhes/campeonato-detalhes.component';
+import { EquipeDetalhesComponent } from './components/equipe-detalhes/equipe-detalhes.component';
+import { EquipeListaComponent } from './components/equipe-lista/equipe-lista.component';
+import { CampeonatoListaComponent } from './components/campeonato-lista/campeonato-lista.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddModalidadeComponent,
     ModalidadeDetalhesComponent,
-    ModalidadeListaComponent
+    ModalidadeListaComponent,
+    AddEquipeComponent,
+    AddCampeonatoComponent,
+    CampeonatoDetalhesComponent,
+    EquipeDetalhesComponent,
+    EquipeListaComponent,
+    CampeonatoListaComponent
   ],
   imports: [
     BrowserModule,
