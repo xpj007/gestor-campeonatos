@@ -20,5 +20,7 @@ from django.urls import re_path,include
 
 urlpatterns = [
     re_path('admin/', admin.site.urls),
-    re_path(r'^', include('modalidades.urls'))
+    re_path(r'^', include('modalidades.urls')),
+    re_path(r'^', include('equipes.urls')),
+    re_path(r'^', include('campeonatos.urls'))
 ]

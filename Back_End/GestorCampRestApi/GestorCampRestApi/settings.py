@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'rest_framework',
     # Modalidades application 
     'modalidades.apps.ModalidadesConfig',
+    # Campeonatos application 
+    'campeonatos.apps.CampeonatosConfig',
+    # Campeonatos application 
+    'equipes.apps.EquipesConfig',
     # CORS
     'corsheaders',
 ]
