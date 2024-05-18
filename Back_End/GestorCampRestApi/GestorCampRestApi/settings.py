@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'campeonatos.apps.CampeonatosConfig',
     # Campeonatos application 
     'equipes.apps.EquipesConfig',
+    # Campeonatos application 
+    'atletas.apps.AtletasConfig',
     # CORS
     'corsheaders',
 ]
