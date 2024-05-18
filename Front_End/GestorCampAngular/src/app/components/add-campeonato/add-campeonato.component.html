@@ -23,18 +23,18 @@
               name="camp_n_equip"
             />
         </div>
-  
-        <div class="form-group">
-          <label for="camp_modalidade">Modalidade Combo Futuro</label>
-          <input
-            class="form-control"
-            id="camp_modalidade"
-            required
-            [(ngModel)]="campeonato.camp_modalidade"
-            name="camp_modalidade"
-          />
-        </div>
  
+        <div class="form-group">
+          <label for="camp_modalidade">Modalidade: </label>
+          <p></p>
+          <select [(ngModel)]="campeonato.camp_modalidade">
+            <option selected disabled>Selecione</option>
+            <option *ngFor="let modalidade of modalidade">
+                {{modalidade.mod_nome}}
+            </option>
+          </select>
+        </div>
+
         <button (click)="gravarCampeonato()" class="btn btn-success">Gravar</button>
       </div>
   

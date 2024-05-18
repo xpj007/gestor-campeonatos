@@ -1,0 +1,135 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentAtleta.id">
+      <h4>Atleta</h4>
+      <div>
+        <label><strong>Nome do Atleta: </strong></label> {{ currentAtleta.at_nome }}
+      </div>
+      <div>
+        <label><strong>Data de Nascimento: </strong></label>
+        {{ currentAtleta.at_dnasc }}
+      </div>
+      <div>
+        <label><strong>Modalidade do Atleta: </strong></label>
+        {{ currentAtleta.at_modalidade }}
+      </div>
+      <div>
+        <label><strong>Nota do Atleta: </strong></label>
+        {{ currentAtleta.at_nota }}
+      </div>
+      <div>
+        <label><strong>Posição de Jogo: </strong></label>
+        {{ currentAtleta.at_posicao }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentAtleta.publicado ? "Publicado" : "Pendente" }}
+      </div>
+  
+      <a
+        class="badge badge-warning"
+        routerLink="/atletas/{{ currentAtleta.id }}"
+      >
+        Editar
+      </a>
+    </div>
+  
+    <div *ngIf="!currentAtleta">
+      <br />
+      <p>Por favor clique em um Atleta...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentAtleta.id" class="edit-form">
+      <h4>Atleta</h4>
+      <form>
+        <div class="form-group">
+          <label for="at_nome">Nome do Atleta: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="at_nome"
+            [(ngModel)]="currentAtleta.at_nome"
+            name="at_nome"
+          />
+        </div>
+        <div class="form-group">
+            <label for="at_dnasc">Data de Nascimento: </label>
+            <input type="date" 
+            id="at_dnasc" 
+            name="at_dnasc" 
+            [(ngModel)]="currentAtleta.at_dnasc"
+            />
+        </div>
+        <div class="form-group">
+            <label for="at_modalidade">Modalidade do Atleta: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="at_modalidade"
+              [(ngModel)]="currentAtleta.at_modalidade"
+              name="at_modalidade"
+            />
+        </div>
+        <div class="form-group">
+            <label for="at_nota">Nota do Atleta: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="at_nota"
+              [(ngModel)]="currentAtleta.at_nota"
+              name="at_nota"
+            />
+        </div>
+        <div class="form-group">
+            <label for="at_posicao">Posição de Jogo: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="at_posicao"
+              [(ngModel)]="currentAtleta.at_posicao"
+              name="at_posicao"
+            />
+        </div>
+  
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentAtleta.publicado ? "Publicado" : "Pendente" }}
+        </div>
+      </form>
+  
+      <button
+        class="badge badge-primary mr-2"
+        *ngIf="currentAtleta.publicado"
+        (click)="atualizarPublicado(false)"
+      >
+        Inativar
+      </button>
+      <button
+        *ngIf="!currentAtleta.publicado"
+        class="badge badge-primary mr-2"
+        (click)="atualizarPublicado(true)"
+      >
+        Publicar
+      </button>
+  
+      <button class="badge badge-danger mr-2" (click)="deletarAtleta()">
+        Excluir
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="atualizarAtleta()"
+      >
+        Atualizar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentAtleta.id">
+      <br />
+      <p>Nao é possivel acessar esse Atleta...</p>
+    </div>
+  </ng-template>
+

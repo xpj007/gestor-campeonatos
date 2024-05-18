@@ -1,0 +1,67 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="at_nome">Nome do Atleta: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="at_nome"
+            required
+            [(ngModel)]="atleta.at_nome"
+            name="at_nome"
+          />
+        </div>
+        <div class="form-group">
+            <label for="at_dnasc">Data de Nascimento: </label>
+            <input 
+            type="date" 
+            class="form-control"
+            id="at_dnasc" 
+            name="at_dnasc" 
+            [(ngModel)]="atleta.at_dnasc"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="at_modalidade">Modalidade: </label>
+            <p></p>
+            <select [(ngModel)]="atleta.at_modalidade">
+              <option selected disabled>Selecione</option>
+              <option *ngFor="let modalidade of modalidade">
+                  {{modalidade.mod_nome}}
+              </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="at_nota">Nota do Atleta: </label>
+            <input
+              class="form-control"
+              id="at_nota"
+              required
+              [(ngModel)]="atleta.at_nota"
+              name="at_nota"
+            />
+        </div>
+        <div class="form-group">
+            <label for="at_posicao">Posição de Jogo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="at_posicao"
+              required
+              [(ngModel)]="atleta.at_posicao"
+              name="at_posicao"
+            />
+        </div>
+ 
+        <button (click)="gravarAtleta()" class="btn btn-success">Gravar</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Atleta incluido com Sucesso!</h4>
+        <button class="btn btn-success" (click)="novoAtleta()">Adicionar</button>
+      </div>
+    </div>
+  </div>

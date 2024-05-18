@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Campeonato } from 'src/app/models/campeonato.model';
 import { CampeonatoService } from 'src/app/services/campeonato.service';
+import { ModalidadeService } from 'src/app/services/modalidade.service';
 
 @Component({
   selector: 'app-add-campeonato',
@@ -16,10 +17,14 @@ export class AddCampeonatoComponent implements OnInit {
     publicado: false
   };
   submitted = false;
+  modalidade: any =[];
 
-  constructor(private campeonatoService: CampeonatoService) { }
+  constructor(private campeonatoService: CampeonatoService,
+              private modalidadeService: ModalidadeService
+  ) { }
 
   ngOnInit(): void {
+    this.modalidadeService.getAll().subscribe(data => this.modalidade = data);
   }
 
   gravarCampeonato(): void {
@@ -50,3 +55,5 @@ export class AddCampeonatoComponent implements OnInit {
   }
 
 }
+
+
