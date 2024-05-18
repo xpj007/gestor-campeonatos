@@ -9,6 +9,9 @@ import { AddCampeonatoComponent } from './components/add-campeonato/add-campeona
 import { EquipeListaComponent } from './components/equipe-lista/equipe-lista.component';
 import { EquipeDetalhesComponent } from './components/equipe-detalhes/equipe-detalhes.component';
 import { AddEquipeComponent } from './components/add-equipe/add-equipe.component';
+import { AddAtletaComponent } from './components/add-atleta/add-atleta.component';
+import { AtletaDetalhesComponent } from './components/atleta-detalhes/atleta-detalhes.component';
+import { AtletaListaComponent } from './components/atleta-lista/atleta-lista.component';
 
 
 const routes: Routes = [
@@ -21,7 +24,10 @@ const routes: Routes = [
 { path: 'addCamp', component: AddCampeonatoComponent },
 { path: 'equipes', component: EquipeListaComponent },
 { path: 'equipes/:id', component: EquipeDetalhesComponent },
-{ path: 'addEquipe', component: AddEquipeComponent }];
+{ path: 'addEquipe', component: AddEquipeComponent },
+{ path: 'atletas', component: AtletaListaComponent },
+{ path: 'atletas/:id', component: AtletaDetalhesComponent },
+{ path: 'addAtleta', component: AddAtletaComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

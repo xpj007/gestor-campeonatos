@@ -14,6 +14,9 @@ import { CampeonatoDetalhesComponent } from './components/campeonato-detalhes/ca
 import { EquipeDetalhesComponent } from './components/equipe-detalhes/equipe-detalhes.component';
 import { EquipeListaComponent } from './components/equipe-lista/equipe-lista.component';
 import { CampeonatoListaComponent } from './components/campeonato-lista/campeonato-lista.component';
+import { AddAtletaComponent } from './components/add-atleta/add-atleta.component';
+import { AtletaDetalhesComponent } from './components/atleta-detalhes/atleta-detalhes.component';
+import { AtletaListaComponent } from './components/atleta-lista/atleta-lista.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { CampeonatoListaComponent } from './components/campeonato-lista/campeona
     CampeonatoDetalhesComponent,
     EquipeDetalhesComponent,
     EquipeListaComponent,
-    CampeonatoListaComponent
+    CampeonatoListaComponent,
+    AddAtletaComponent,
+    AtletaDetalhesComponent,
+    AtletaListaComponent
   ],
   imports: [
     BrowserModule,
