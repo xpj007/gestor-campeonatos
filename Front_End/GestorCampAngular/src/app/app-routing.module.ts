@@ -12,10 +12,11 @@ import { AddEquipeComponent } from './components/add-equipe/add-equipe.component
 import { AddAtletaComponent } from './components/add-atleta/add-atleta.component';
 import { AtletaDetalhesComponent } from './components/atleta-detalhes/atleta-detalhes.component';
 import { AtletaListaComponent } from './components/atleta-lista/atleta-lista.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
-{ path: '', redirectTo: 'modalidades', pathMatch: 'full' },
+{ path: '', redirectTo: 'home', pathMatch: 'full' },
 { path: 'modalidades', component: ModalidadeListaComponent },
 { path: 'modalidades/:id', component: ModalidadeDetalhesComponent },
 { path: 'add', component: AddModalidadeComponent },
@@ -27,7 +28,17 @@ const routes: Routes = [
 { path: 'addEquipe', component: AddEquipeComponent },
 { path: 'atletas', component: AtletaListaComponent },
 { path: 'atletas/:id', component: AtletaDetalhesComponent },
-{ path: 'addAtleta', component: AddAtletaComponent }];
+{ path: 'addAtleta', component: AddAtletaComponent },
+{ path: 'home', component: HomeComponent },
+{ path: 'home/add', component: AddModalidadeComponent },
+{ path: 'home/modalidades', component: ModalidadeListaComponent },
+{ path: 'home/addCamp', component: AddCampeonatoComponent },
+{ path: 'home/campeonatos', component:CampeonatoListaComponent },
+{ path: 'home/addEquipe', component: AddEquipeComponent },
+{ path: 'home/equipes', component:EquipeListaComponent },
+{ path: 'home/addAtleta', component: AddAtletaComponent },
+{ path: 'home/atletas', component:AtletaListaComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

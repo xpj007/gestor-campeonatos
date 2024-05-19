@@ -17,6 +17,7 @@ import { CampeonatoListaComponent } from './components/campeonato-lista/campeona
 import { AddAtletaComponent } from './components/add-atleta/add-atleta.component';
 import { AtletaDetalhesComponent } from './components/atleta-detalhes/atleta-detalhes.component';
 import { AtletaListaComponent } from './components/atleta-lista/atleta-lista.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AtletaListaComponent } from './components/atleta-lista/atleta-lista.com
     CampeonatoListaComponent,
     AddAtletaComponent,
     AtletaDetalhesComponent,
-    AtletaListaComponent
+    AtletaListaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

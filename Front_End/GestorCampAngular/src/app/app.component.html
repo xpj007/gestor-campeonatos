@@ -2,37 +2,45 @@
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a href="#" class="navbar-brand">Gestor de Campeonatos</a>
     <div class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="modalidades" class="nav-link">Modalidades</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="add" class="nav-link">Adicionar Modalidade</a>
-      </li>
-    </div>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Modalidades
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="add">Cadastrar Modalidade</a>
+          <a class="dropdown-item" routerLink="modalidades">Lista de Modalidades</a>
+        </div>
+    </div> 
     <div class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="campeonatos" class="nav-link">Campeonatos</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="addCamp" class="nav-link">Adicionar Campeonato</a>
-      </li>
-    </div>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Campeonatos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="addCamp">Cadastrar Campeonato</a>
+          <a class="dropdown-item" routerLink="campeonatos">Lista de Campeonatos</a>
+        </div>
+    </div> 
     <div class="navbar-nav mr-auto">
-    <li class="nav-item">
-      <a routerLink="equipes" class="nav-link">Equipes</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="addEquipe" class="nav-link">Adicionar Equipes</a>
-    </li>
-    </div>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Equipes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="addEquipe">Cadastrar Equipe</a>
+          <a class="dropdown-item" routerLink="equipes">Lista de Equipes</a>
+        </div>
+    </div> 
     <div class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="atletas" class="nav-link">Atletas</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="addAtleta" class="nav-link">Adicionar Atletas</a>
-      </li>
-    </div>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Atletas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="addAtleta">Cadastrar Atleta</a>
+          <a class="dropdown-item" routerLink="atletas">Lista de Atletas</a>
+        </div>
+    </div> 
   </nav>
 
   <div class="container mt-3">
