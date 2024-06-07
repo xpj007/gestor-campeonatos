@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Equipe} from '../models/equipe.model';
+import { Jogo } from '../models/jogo.model';
 
-const baseUrl = 'http://localhost:8080/api/equipes';
+const baseUrl = 'http://localhost:8080/api/jogos';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EquipeService {
+export class JogoService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Equipe[]> {
-    return this.http.get<Equipe[]>(baseUrl);
+  getAll(): Observable<Jogo[]> {
+    return this.http.get<Jogo[]>(baseUrl);
   }
 
-  get(id: any): Observable<Equipe> {
-    return this.http.get<Equipe>(`${baseUrl}/${id}`);
+  get(id: any): Observable<Jogo> {
+    return this.http.get<Jogo>(`${baseUrl}/${id}`);
   }
 
   create(data: any): Observable<any> {
@@ -36,7 +36,7 @@ export class EquipeService {
     return this.http.delete(baseUrl);
   }
 
-  AcharPorEquipe(equipe: any): Observable<Equipe[]> {
-    return this.http.get<Equipe[]>(`${baseUrl}?Equipe_nome=${equipe}`);
+  AcharPorJogo(jogo: any): Observable<Jogo[]> {
+    return this.http.get<Jogo[]>(`${baseUrl}?jogo_camp_nome=${jogo}`);
   }
 }

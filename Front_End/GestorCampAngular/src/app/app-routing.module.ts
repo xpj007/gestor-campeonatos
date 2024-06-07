@@ -13,6 +13,11 @@ import { AddAtletaComponent } from './components/add-atleta/add-atleta.component
 import { AtletaDetalhesComponent } from './components/atleta-detalhes/atleta-detalhes.component';
 import { AtletaListaComponent } from './components/atleta-lista/atleta-lista.component';
 import { HomeComponent } from './components/home/home.component';
+import { AddElencoComponent } from './components/add-elenco/add-elenco.component';
+import { ElencoListaComponent } from './components/elenco-lista/elenco-lista.component';
+import { AddJogoComponent } from './components/add-jogo/add-jogo.component';
+import { JogoListaComponent } from './components/jogo-lista/jogo-lista.component';
+import { JogoDetalhesComponent } from './components/jogo-detalhes/jogo-detalhes.component';
 
 
 const routes: Routes = [
@@ -29,6 +34,11 @@ const routes: Routes = [
 { path: 'atletas', component: AtletaListaComponent },
 { path: 'atletas/:id', component: AtletaDetalhesComponent },
 { path: 'addAtleta', component: AddAtletaComponent },
+{ path: 'addElenco', component: AddElencoComponent },
+{ path: 'elencos', component:ElencoListaComponent },
+{ path: 'addJogo', component: AddJogoComponent },
+{ path: 'jogos', component:JogoListaComponent },
+{ path: 'jogos/:id', component: JogoDetalhesComponent },
 { path: 'home', component: HomeComponent },
 { path: 'home/add', component: AddModalidadeComponent },
 { path: 'home/modalidades', component: ModalidadeListaComponent },
@@ -37,7 +47,11 @@ const routes: Routes = [
 { path: 'home/addEquipe', component: AddEquipeComponent },
 { path: 'home/equipes', component:EquipeListaComponent },
 { path: 'home/addAtleta', component: AddAtletaComponent },
-{ path: 'home/atletas', component:AtletaListaComponent }
+{ path: 'home/atletas', component:AtletaListaComponent },
+{ path: 'home/addElenco', component: AddElencoComponent },
+{ path: 'home/elencos', component:ElencoListaComponent },
+{ path: 'home/addJogo', component: AddJogoComponent },
+{ path: 'home/jogos', component:JogoListaComponent }
 ];
 
 @NgModule({

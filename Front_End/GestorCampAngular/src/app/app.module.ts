@@ -18,6 +18,12 @@ import { AddAtletaComponent } from './components/add-atleta/add-atleta.component
 import { AtletaDetalhesComponent } from './components/atleta-detalhes/atleta-detalhes.component';
 import { AtletaListaComponent } from './components/atleta-lista/atleta-lista.component';
 import { HomeComponent } from './components/home/home.component';
+import { AddElencoComponent } from './components/add-elenco/add-elenco.component';
+import { ElencoListaComponent } from './components/elenco-lista/elenco-lista.component';
+import { MatTableModule } from '@angular/material/table';
+import { AddJogoComponent } from './components/add-jogo/add-jogo.component';
+import { JogoDetalhesComponent } from './components/jogo-detalhes/jogo-detalhes.component';
+import { JogoListaComponent } from './components/jogo-lista/jogo-lista.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +40,19 @@ import { HomeComponent } from './components/home/home.component';
     AddAtletaComponent,
     AtletaDetalhesComponent,
     AtletaListaComponent,
-    HomeComponent
+    HomeComponent,
+    AddElencoComponent,
+    ElencoListaComponent,
+    AddJogoComponent,
+    JogoDetalhesComponent,
+    JogoListaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
