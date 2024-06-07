@@ -1,0 +1,84 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+            <label for="jogo_camp_nome">Campeonato: </label>
+            <p></p>
+            <select [(ngModel)]="jogo.jogo_camp_nome">
+              <option selected disabled>Selecione</option>
+              <option *ngFor="let campeonato of campeonato">
+                  {{campeonato.camp_nome}}
+              </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="jogo_cs_nome">Equipe Casa: </label>
+            <p></p>
+            <select [(ngModel)]="jogo.jogo_cs_nome">
+              <option selected disabled>Selecione</option>
+              <option *ngFor="let equipeA of equipeA">
+                  {{equipeA.Equipe_nome}}
+              </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="jogo_cs_placar">Placar : </label>
+            <input
+              class="form-control"
+              id="jogo_cs_placar"
+              required
+              [(ngModel)]="jogo.jogo_cs_placar"
+              name="jogo_cs_placar"
+            />
+        </div>
+        <div class="form-group">
+            <label for="jogo_fr_nome">Equipe Fora: </label>
+            <p></p>
+            <select [(ngModel)]="jogo.jogo_fr_nome">
+              <option selected disabled>Selecione</option>
+              <option *ngFor="let equipeB of equipeB">
+                  {{equipeB.Equipe_nome}}
+              </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="jogo_fr_placar">Placar : </label>
+            <input
+              class="form-control"
+              id="jogo_fr_placar"
+              required
+              [(ngModel)]="jogo.jogo_fr_placar"
+              name="jogo_fr_placar"
+            />
+        </div>
+        <div class="form-group">
+            <label for="jogo_data">Data do Jogo: </label>
+            <input 
+            type="date" 
+            class="form-control"
+            id="jogo_data" 
+            name="jogo_data" 
+            [(ngModel)]="jogo.jogo_data"
+            />
+        </div>
+        <div class="form-group">
+            <label for="jogo_local">Local do Jogo:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="jogo_local"
+              required
+              [(ngModel)]="jogo.jogo_local"
+              name="jogo_local"
+            />
+        </div>
+ 
+        <button (click)="gravarJogo()" class="btn btn-success">Gravar</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Jogo incluido com Sucesso!</h4>
+        <button class="btn btn-success" (click)="novoJogo()">Adicionar</button>
+      </div>
+    </div>
+  </div>

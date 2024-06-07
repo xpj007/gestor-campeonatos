@@ -1,0 +1,171 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentJogo.id">
+      <h4>Partida</h4>
+      <div>
+        <label><strong>Campeonato: </strong></label> 
+        {{ currentJogo.jogo_camp_nome }}
+      </div>
+      <div>
+        <label><strong>Equipe Casa: </strong></label>
+        {{ currentJogo.jogo_cs_nome }}
+      </div>
+      <div>
+        <label><strong>Placar Casa: </strong></label>
+        {{ currentJogo.jogo_cs_placar }}
+      </div>
+      <div>
+        <label><strong>Equipe Fora: </strong></label>
+        {{ currentJogo.jogo_fr_nome }}
+      </div>
+      <div>
+        <label><strong>Placar Fora: </strong></label>
+        {{ currentJogo.jogo_fr_placar }}
+      </div>
+      <div>
+        <label><strong>Data da Partida: </strong></label>
+        {{ currentJogo.jogo_data }}
+      </div>
+      <div>
+        <label><strong>Local da Partida: </strong></label>
+        {{ currentJogo.jogo_local }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentJogo.publicado ? "Publicado" : "Pendente" }}
+      </div>
+  
+      <a
+        class="badge badge-warning"
+        routerLink="/jogos/{{ currentJogo.id }}"
+      >
+        Editar
+      </a>
+    </div>
+  
+    <div *ngIf="!currentJogo">
+      <br />
+      <p>Por favor clique em uma Partida...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentJogo.id" class="edit-form">
+      <h4>Partida</h4>
+      <form>
+        <div class="form-group">
+          <label for="jogo_camp_nome">Campeonato: </label>
+          <input
+            readonly
+            type="text"
+            class="form-control"
+            id="jogo_camp_nome"
+            [(ngModel)]="currentJogo.jogo_camp_nome"
+            name="jogo_camp_nome"
+          />
+        </div>
+        <div class="form-group">
+            <label for="jogo_cs_nome">Equipe Casa: </label>
+            <input
+              readonly
+              type="text"
+              class="form-control"
+              id="jogo_cs_nome"
+              [(ngModel)]="currentJogo.jogo_cs_nome"
+              name="jogo_cs_nome"
+            />
+        </div>
+        <div class="form-group">
+            <label for="jogo_cs_placar">Placar Casa: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="jogo_cs_placar"
+              [(ngModel)]="currentJogo.jogo_cs_placar"
+              name="jogo_cs_placar"
+            />
+        </div>
+        <div class="form-group">
+            <label for="jogo_fr_nome">Equipe Fora: </label>
+            <input
+              readonly
+              type="text"
+              class="form-control"
+              id="jogo_fr_nome"
+              [(ngModel)]="currentJogo.jogo_fr_nome"
+              name="jogo_fr_nome"
+            />
+        </div>
+        <div class="form-group">
+            <label for="jogo_fr_placar">Placar Fora: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="jogo_fr_placar"
+              [(ngModel)]="currentJogo.jogo_fr_placar"
+              name="jogo_fr_placar"
+            />
+        </div>
+        <div class="form-group">
+            <label for="jogo_data">Data da Partida: </label>
+            <input
+              type="date"
+              class="form-control"
+              id="jogo_data"
+              [(ngModel)]="currentJogo.jogo_data"
+              name="jogo_data"
+            />
+        </div>
+        <div class="form-group">
+            <label for="jogo_local">Local da Partida: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="jogo_local"
+              [(ngModel)]="currentJogo.jogo_local"
+              name="jogo_local"
+            />
+        </div>
+        
+        
+  
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentJogo.publicado ? "Publicado" : "Pendente" }}
+        </div>
+      </form>
+  
+      <button
+        class="badge badge-primary mr-2"
+        *ngIf="currentJogo.publicado"
+        (click)="atualizarPublicado(false)"
+      >
+        Inativar
+      </button>
+      <button
+        *ngIf="!currentJogo.publicado"
+        class="badge badge-primary mr-2"
+        (click)="atualizarPublicado(true)"
+      >
+        Publicar
+      </button>
+  
+      <button class="badge badge-danger mr-2" (click)="deletarJogo()">
+        Excluir
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="atualizarJogo()"
+      >
+        Atualizar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentJogo.id">
+      <br />
+      <p>Nao é possivel acessar essa Partida...</p>
+    </div>
+  </ng-template>
+
