@@ -23,5 +23,7 @@ urlpatterns = [
     re_path(r'^', include('modalidades.urls')),
     re_path(r'^', include('equipes.urls')),
     re_path(r'^', include('campeonatos.urls')),
-    re_path(r'^', include('atletas.urls'))
+    re_path(r'^', include('atletas.urls')),
+    re_path(r'^', include('elencos.urls')),
+    re_path(r'^', include('jogos.urls'))
 ]

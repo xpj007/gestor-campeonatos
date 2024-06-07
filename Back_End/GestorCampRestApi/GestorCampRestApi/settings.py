@@ -42,10 +42,14 @@ INSTALLED_APPS = [
     'modalidades.apps.ModalidadesConfig',
     # Campeonatos application 
     'campeonatos.apps.CampeonatosConfig',
-    # Campeonatos application 
+    # Equipes application 
     'equipes.apps.EquipesConfig',
-    # Campeonatos application 
+    # Atletas application 
     'atletas.apps.AtletasConfig',
+     # Elencos application 
+    'elencos.apps.ElencosConfig',
+     # Jogos application 
+    'jogos.apps.JogosConfig',
     # CORS
     'corsheaders',
 ]
