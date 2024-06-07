@@ -62,3 +62,15 @@ def atleta_lista_publicada(request):
     if request.method == 'GET': 
         atletas_serializer = AtletaSerializer(atletas, many=True)
         return JsonResponse(atletas_serializer.data, safe=False)
+
+@api_view(['GET'])
+def consulta_atleta(request,qtd = 11):
+    # GET atletas elegiveis para montagem de elenco
+    atletas = Atleta.objects.all()[:qtd] 
+        
+    at_nota = request.GET.get('at_nota', None)
+    if at_nota is not None:
+        atletas = atletas.filter(at_nota__lte=at_nota)
+                                    
+    atletas_serializer = AtletaSerializer(atletas, many=True)
+    return JsonResponse(atletas_serializer.data, safe=False)
